@@ -47,7 +47,7 @@ public class RazerTridentEntity extends ThrownTrident {
             double distance = direction.length();
             direction = direction.normalize();
 
-            for (double i = 0; i < distance; i += 0.5) {
+            for (double i = 0; i < distance; i += 0.125) {
                 Vec3 particlePos = tridentPos.add(direction.scale(i));
                 levell.addParticle(ParticleTypes.SONIC_BOOM, particlePos.x, particlePos.y, particlePos.z, 0.0,1.0,3.0);
             }

@@ -37,7 +37,8 @@ public class RazerGun extends ProjectileWeaponItem {
         if (!level.isClientSide && itemstac.getItem() == Items.TNT) {
             ItemStack ammo = new ItemStack(Items.AIR);
             RazerTridentEntity arrow = new RazerTridentEntity(level, player, ammo);
-            arrow.shoot(v3.x, v3.y, v3.z, 45F, 0);
+            arrow.shoot(v3.x, v3.y, v3.z, 65F, 0);
+
             level.addFreshEntity(arrow);
             level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.PLAYERS, 1.0F, 1.0F);
 
