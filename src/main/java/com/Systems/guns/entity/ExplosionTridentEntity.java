@@ -39,7 +39,7 @@ public class ExplosionTridentEntity extends ThrownTrident {
                 ServerLevel serverWorld = (ServerLevel) this.level;
 
                 // 爆発を生成し、トライデントの位置で爆発させる
-                serverWorld.explode(this, DamageSource.thrown(this, this.getOwner()), null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 3.0F, true, net.minecraft.world.level.Explosion.BlockInteraction.BREAK);
+                serverWorld.explode(this, DamageSource.thrown(this, this.getOwner()), null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 4.0F, true, net.minecraft.world.level.Explosion.BlockInteraction.BREAK);
           }
           // トライデントを回収または消失させる}
             this.discard();

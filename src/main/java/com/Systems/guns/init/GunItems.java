@@ -1,5 +1,6 @@
 package com.Systems.guns.init;
 
+import com.Systems.guns.item.RazerGun;
 import com.Systems.guns.item.TntGun;
 import com.main.reference;
 import net.minecraft.world.item.Item;
@@ -11,5 +12,6 @@ public class GunItems {
 
     public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, reference.MOD_ID);
     public static final RegistryObject<Item> TNT_GUNS = REGISTRY.register("tnt_guns", () -> new TntGun());
+    public static final RegistryObject<Item> RAZER_GUNS = REGISTRY.register("razer_guns", () -> new RazerGun());
 
  }

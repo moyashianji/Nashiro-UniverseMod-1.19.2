@@ -26,7 +26,6 @@ public class nashiro {
         invisible.register();
         GunItems.REGISTRY.register(bus);
         GunsTab.load();
-
         bus.addListener(this::onClientSetup);
     }
 
