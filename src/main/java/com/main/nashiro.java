@@ -2,6 +2,8 @@ package com.main;
 
 import com.Systems.ReplaceDiamond;
 
+import com.Systems.guns.init.GunItems;
+import com.Systems.guns.tab.GunsTab;
 import com.Systems.init.OriginalmodelModEntities;
 import com.Systems.invisisble.invisible;
 import com.command.Command;
@@ -22,6 +24,9 @@ public class nashiro {
         ReplaceDiamond.register();
         OriginalmodelModEntities.REGISTRY.register(bus);
         invisible.register();
+        GunItems.REGISTRY.register(bus);
+        GunsTab.load();
+
         bus.addListener(this::onClientSetup);
     }
 

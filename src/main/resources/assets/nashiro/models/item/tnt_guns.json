@@ -1,0 +1,6 @@
+{
+  "parent": "nashiro:custom/tnt_guns",
+  "textures": {
+    "layer0": "nashiro:items/tnt_guns"
+  }
+}
