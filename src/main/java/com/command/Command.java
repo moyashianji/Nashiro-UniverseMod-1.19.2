@@ -27,6 +27,7 @@ import org.intellij.lang.annotations.Identifier;
 import java.util.logging.Level;
 
 import static com.main.reference.diamondflag;
+import static com.main.reference.invisibleflag;
 
 public class Command {
 
@@ -40,6 +41,14 @@ public class Command {
                                 .executes(context -> spawnZombies(context.getSource()))
                         )
                 )
+                .then(Commands.literal("i")
+                        .then(Commands.literal("t")
+                                .executes(context -> trueinvisible(context.getSource()))
+                        )
+                        .then(Commands.literal("f")
+                                .executes(context -> falseinvisible(context.getSource()))
+                        )
+                )
                 .then(Commands.literal("diamond")
                         .then(Commands.literal("true")
                                 .executes(context -> truediamond(context.getSource()))
@@ -47,6 +56,7 @@ public class Command {
                         .then(Commands.literal("false")
                                 .executes(context -> falsediamond(context.getSource()))
                         )
+
 
                 );
 
@@ -86,7 +96,28 @@ public class Command {
         }
         return 1;
     }
-    public static void register() {
+    private static int trueinvisible(CommandSourceStack source) {
+        if(invisibleflag == true){
+            System.out.println("Already TRUE");
+        }else{
+            invisibleflag = true;
+            source.getPlayer().setInvisible(true);
+        }
+        // Start your stopwatch logic here
+        return 0;
+    }
+
+    private static int falseinvisible(CommandSourceStack source) {
+        if(invisibleflag == false){
+            System.out.println("Already FALSE");
+        }else{
+            invisibleflag = false;
+            source.getPlayer().setInvisible(false);
+
+        }        // Pause your stopwatch logic here
+        return 0;
+    }
+        public static void register() {
         MinecraftForge.EVENT_BUS.register(Command.class);
     }
 

@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import com.Systems.guns.init.GunItems;
@@ -49,6 +50,9 @@ public class TntGun extends ProjectileWeaponItem {
                 double offsetZ = level.random.nextGaussian() * 0.02;
                 levell.addParticle(ParticleTypes.CRIMSON_SPORE, v3.x, v3.y, v3.z, offsetX, offsetY, offsetZ);
             }
+
+
+
             if(!player.getAbilities().instabuild){
                 itemstac.shrink(1);
             }
