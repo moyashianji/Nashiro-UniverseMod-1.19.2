@@ -51,6 +51,10 @@ public class RazerTridentEntity extends ThrownTrident {
                 Vec3 particlePos = tridentPos.add(direction.scale(i));
                 levell.addParticle(ParticleTypes.SONIC_BOOM, particlePos.x, particlePos.y, particlePos.z, 0.0,1.0,3.0);
             }
+            ServerLevel serverWorld = (ServerLevel) this.level;
+
+            // 爆発を生成し、トライデントの位置で爆発させる
+            serverWorld.explode(this, DamageSource.thrown(this, this.getOwner()), null, hitPos.getX(), hitPos.getY(), hitPos.getZ(), 8.0F, true, net.minecraft.world.level.Explosion.BlockInteraction.BREAK);
 
             // トライデントを回収または消失させる
             this.discard();

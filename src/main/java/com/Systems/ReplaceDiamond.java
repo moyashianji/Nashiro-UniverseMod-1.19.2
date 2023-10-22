@@ -42,7 +42,7 @@ public class ReplaceDiamond {
 
                             // 空気ブロックでない場合にのみ置換
                             if (!targetState.isAir()) {
-                                world.setBlock(targetPos, Blocks.DIAMOND_BLOCK.defaultBlockState(), 3);
+                                world.setBlock(targetPos, Blocks.DIAMOND_ORE.defaultBlockState(), 3);
                             }
                         }
                     }

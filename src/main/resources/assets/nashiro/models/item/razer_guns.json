@@ -1,6 +1,20 @@
 {
-  "parent": "nashiro:custom/tnt_guns",
-  "textures": {
-    "layer0": "nashiro:items/tnt_guns"
-  }
+	"credit": "Made with Blockbench",
+	"parent": "nashiro:custom/utyuuhontohontohonto",
+	"textures": {
+		"0": "nashiro:blocks/texture",
+		"particle": "nashiro:items/texture"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [-7.5, -14.75, 0],
+			"scale": [0, 0, 0]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0, 0, 0]
+		},
+		"firstperson_righthand": {
+			"scale": [0.02, 0, 0]
+		}
+	}
 }

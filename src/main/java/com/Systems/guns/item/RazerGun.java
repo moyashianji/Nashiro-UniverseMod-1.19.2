@@ -34,7 +34,6 @@ public class RazerGun extends ProjectileWeaponItem {
         ItemStack itemstac = player.getProjectile(stack);
         ClientLevel levell = Minecraft.getInstance().level;
 
-        if (!level.isClientSide && itemstac.getItem() == Items.TNT) {
             ItemStack ammo = new ItemStack(Items.AIR);
             RazerTridentEntity arrow = new RazerTridentEntity(level, player, ammo);
             arrow.shoot(v3.x, v3.y, v3.z, 65F, 0);
@@ -48,8 +47,7 @@ public class RazerGun extends ProjectileWeaponItem {
             stack.hurtAndBreak(1, player, (b) -> {
                 b.broadcastBreakEvent(player.getUsedItemHand());
             });
-            return InteractionResultHolder.consume(stack);
-        }
+
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_FRAME_BREAK, SoundSource.PLAYERS, 1.0F, 1.0F);
 
 

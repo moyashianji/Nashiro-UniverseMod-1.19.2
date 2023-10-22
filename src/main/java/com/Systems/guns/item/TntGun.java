@@ -4,13 +4,19 @@ import com.Systems.guns.entity.ExplosionTridentEntity;
 import com.mojang.math.Vector3d;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import com.Systems.guns.init.GunItems;
@@ -38,6 +44,25 @@ public class TntGun extends ProjectileWeaponItem {
         ItemStack itemstac = player.getProjectile(stack);
         ClientLevel levell = Minecraft.getInstance().level;
 
+        Vec3 lookVector = Vec3.directionFromRotation(player.getRotationVector());
+
+        // レイキャストを作成し、ブロックとの衝突を検出
+        BlockHitResult rayTraceResult = level.clip(new ClipContext(
+                player.getViewVector(1.0f),
+                player.getViewVector(1.0f).add(lookVector.x * 4, lookVector.y * 4, lookVector.z * 4),
+                ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player
+        ));
+
+        if (rayTraceResult.getType() == HitResult.Type.BLOCK) {
+            // レイがブロックに当たった場合、そのブロックを取得
+            BlockPos targetPos = rayTraceResult.getBlockPos();
+            BlockState targetBlockState = level.getBlockState(targetPos);
+
+            // ブロックを削除（第2引数をtrueにするとブロックがドロップします）
+            level.removeBlock(targetPos, true);
+
+            // プレイヤーがアクションを実行したことを返します
+        }
         if(!level.isClientSide && itemstac.getItem() == Items.TNT){
             ItemStack ammo = new ItemStack(Items.AIR);
             ExplosionTridentEntity arrow= new ExplosionTridentEntity(level, player, ammo);

@@ -1,6 +1,7 @@
 {
-  "parent": "nashiro:custom/tnt_guns",
+  "parent": "nashiro:custom/tntgunhonto",
   "textures": {
-    "layer0": "nashiro:items/tnt_guns"
+    "0": "nashiro:blocks/tntgun",
+    "particle": "nashiro:items/tntgun"
   }
 }
